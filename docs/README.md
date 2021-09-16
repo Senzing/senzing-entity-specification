@@ -278,10 +278,6 @@ Below is the basic structure of a JSON record the engine can consume. Note that 
 ```
 
 [View JSON](amples/json/sample_company.json)
-<<<<<<< HEAD
-=======
-
->>>>>>> b5ad1cfd0168a54b449f5afd0742fc9bd7b7aa6e
 
 // [Video]
 // [Go to complete entity Specification]
@@ -709,19 +705,9 @@ Select the evaluation deployment method that best fits your situation:
   - Kafka
 
 ## Production Data Operations - Onboarding New Sources
-<<<<<<< HEAD
-<<<<<<< HEAD
-### [Data Operations Handbook](handbooks/data-operations-handbook)
-=======
 
 ### [Data Operations Handbook](handbooks/data-operations-handbook)
 
->>>>>>> origin/main
-=======
-
-### [Data Operations Handbook](handbooks/data-operations-handbook)
-
->>>>>>> b5ad1cfd0168a54b449f5afd0742fc9bd7b7aa6e
 **Production Deployments:**
 
 * AWS SQS
@@ -730,23 +716,8 @@ Select the evaluation deployment method that best fits your situation:
 
 ## Additional Configuration
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   Senzing comes pre-configured with all the features, attributes, and settings you will likely need to begin resolving persons and organizations immediately. However, when you need to configure new features for your entities. A typical example of a custom feature(s) are identifiers unique to your data.
 
-### [Feature Configuration Handbook](handbooks/feature-configuration-handbook)
-=======
-Senzing comes pre-configured with all the features, attributes, and settings you will likely need to begin resolving persons and organizations immediately. However, when you need to configure new features for your entities. A typical example of a custom feature(s) are identifiers unique to your data.
-
-### [Feature Configuration Handbook](handbooks/feature-configuration-handbook)
-
->>>>>>> origin/main
-=======
-Senzing comes pre-configured with all the features, attributes, and settings you will likely need to begin resolving persons and organizations immediately. However, when you need to configure new features for your entities. A typical example of a custom feature(s) are identifiers unique to your data.
-
-### [Feature Configuration Handbook](handbooks/feature-configuration-handbook)
-
->>>>>>> b5ad1cfd0168a54b449f5afd0742fc9bd7b7aa6e
 This handbook's scope only covers how to configure a custom unique identifier.
 
 If you have unique features or entities that you feel are important for your use cases, [contact Customer Success](https://senzing.zendesk.com/hc/en-us/requests/new) and we will guide you through thier creation.
