@@ -279,8 +279,8 @@ Below is the basic structure of a JSON record the engine can consume. Note that 
 
 [View JSON](amples/json/sample_company.json)
 
-// [Video]
-// [Go to complete entity Specification]
+FIXME: Video
+FIXME: Go to complete entity Specification
 
 Have questions? [Ask our Success Team](https://senzing.zendesk.com/hc/en-us/requests/new). We are happy to help anyone.
 
