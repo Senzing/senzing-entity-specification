@@ -57,7 +57,7 @@ If you are currently evaluating Senzing for your use and data cases, we recommen
 - Define your use and data cases
 - Consider the sample subsets from your sources.
 
-[Get the Workbook](https://github.com/missulmer/SZGESv3/blob/main/documents/Generic_Datasource_worksheet_1.0.0.xlsx)
+[Get the Workbook](xlsx/Generic_Datasource_worksheet_1.0.0.xlsx)
 
 ### Production Systems - Integrating More or Expanding Use Cases
 
@@ -69,7 +69,7 @@ We are here to help anyone! [Request a free mapping review session](https://senz
 
 [Suggested add image from mapping primer]
 
-Senzing entity resolution works best when as many relevant features as possible are mapped from your source data. In the next section, we will look at examples of features of map people and companies. We've provided the corresponding samples for people and companies in [CSV](https://github.com/missulmer/SZGESv3/tree/main/sample_csvs) and [JSON](https://github.com/missulmer/SZGESv3/tree/main/json_sample) via Github.
+Senzing entity resolution works best when as many relevant features as possible are mapped from your source data. In the next section, we will look at examples of features of map people and companies. We've provided the corresponding samples for people and companies in [CSV](https://github.com/Senzing/senzing-entity-specification/tree/main/docs/samples/csv) and [JSON](https://github.com/Senzing/senzing-entity-specification/tree/main/docs/samples/json) via Github.
 
 These files contain the likely fields you will run into when mapping organizations to the default entity format. In fact, you should try to map as many of these fields as possible.
 
@@ -86,7 +86,7 @@ These files contain the likely fields you will run into when mapping organizatio
 
 ### Sample Features for An Organization
 
-The [sample_organization.csv](https://github.com/missulmer/SZGESv3/tree/main/sample_csvs) can be used to map your data to if desired. There is also a corresponding [sample_organization.json](https://github.com/missulmer/SZGESv3/blob/main/json_sample/sample_company.json) file if you prefer. The sample organization structure contains the follow fields:
+The [sample_company.csv](samples/csv/sample_company.csv) can be used to map your data to if desired. There is also a corresponding [sample_company.json](samples/json/sample_company.json) file if you prefer. The sample organization structure contains the follow fields:
 
 - Primary name
 - Tax ID number, like employer identification number
@@ -106,161 +106,179 @@ Below is the basic structure of a JSON record the engine can consume. Note that 
 
 #### Sample JSON structure for a People
 
-FIXME: indent
+*Notes:*
+
+- A `DATA_SOURCE` code is required, must be UPPER CASE and not greater than 25 characters.
+- A `RECORD_ID` is always desired
+- In `NAME_LIST`, multiple name segments are placed in a list
+- In `ADDRESS_LIST`, multiple Address segments placed in a list, where there are multiple addresses you will choose a "TYPE" like HOME and MAIL
+- In `PHONE_LIST`, multiple phone numbers are placed in a list with a tagged TYPE. E.g. 'WORK' and 'CELL'
 
 ```json
-
-// a data source code is required, must be UPPER CASE and not greater than 25 char
-
-"DATA_SOURCE": "CUSTOMER ",
-//a record ID is always desired
-"RECORD_ID": 1001,
-//multiple name segments placed in a list
-"NAME_LIST": [{
-"NAME_TYPE": "PRIMARY",
-"NAME_LAST": "Jones",
-"NAME_FIRST": "Robert",
-"NAME_MIDDLE": "M",
-"NAME_PREFIX": "Mr",
-"NAME_SUFFIX": "Jr" }],
-"GENDER": "M",
-"DATE_OF_BIRTH": "1/2/1981",
-"PASSPORT_NUMBER": "PP11111",
-"PASSPORT_COUNTRY": "US",
-"DRIVERS_LICENSE_NUMBER": "DL11111",
-"DRIVERS_LICENSE_STATE": "NV",
-"SSN_NUMBER": "111-11-1111",
-
-//multiple Address segments placed in a list, where there are multiple addresses you will choose a "TYPE" like HOME and MAIL
-"ADDRESS_LIST": [{
-"ADDR_TYPE": "HOME",
-"ADDR_LINE1": "111 First St",
-"ADDR_CITY": "Las Vegas",
-"ADDR_STATE": "NV",
-"ADDR_POSTAL_CODE": "89111",
-"ADDR_COUNTRY": "US"
-},
-
-{ "ADDR_TYPE": "MAIL",
-"ADDR_LINE1": "PO Box 111",
-"ADDR_CITY": "Las Vegas",
-"ADDR_STATE": "NV",
-"ADDR_POSTAL_CODE": "89111",
-"ADDR_COUNTRY": "US" }],
-
-//multiple phone numbers are placed in a list with a tagged TYPE. E.g. 'WORK' and 'CELL'
-
-"PHONE_LIST": [{
-"PHONE_TYPE": "WORK",
-"PHONE_NUMBER": "800-201-2001" },
-{ "PHONE_TYPE": "CELL",
-"PHONE_NUMBER": "702-222-2222" }],
-"EMAIL_ADDRESS": "bob@jonesfamily.com",
-"SOCIAL_HANDLE": "@bobjones27",
-"SOCIAL_NETWORK": "twitter"}
+{
+  "DATA_SOURCE": "CUSTOMER ",
+  "RECORD_ID": 1001,
+  "NAME_LIST": [{
+    "NAME_TYPE": "PRIMARY",
+    "NAME_LAST": "Jones",
+    "NAME_FIRST": "Robert",
+    "NAME_MIDDLE": "M",
+    "NAME_PREFIX": "Mr",
+    "NAME_SUFFIX": "Jr"
+  }],
+  "GENDER": "M",
+  "DATE_OF_BIRTH": "1/2/1981",
+  "PASSPORT_NUMBER": "PP11111",
+  "PASSPORT_COUNTRY": "US",
+  "DRIVERS_LICENSE_NUMBER": "DL11111",
+  "DRIVERS_LICENSE_STATE": "NV",
+  "SSN_NUMBER": "111-11-1111",
+  "ADDRESS_LIST": [{
+    "ADDR_TYPE": "HOME",
+    "ADDR_LINE1": "111 First St",
+    "ADDR_CITY": "Las Vegas",
+    "ADDR_STATE": "NV",
+    "ADDR_POSTAL_CODE": "89111",
+    "ADDR_COUNTRY": "US"
+  }, {
+    "ADDR_TYPE": "MAIL",
+    "ADDR_LINE1": "PO Box 111",
+    "ADDR_CITY": "Las Vegas",
+    "ADDR_STATE": "NV",
+    "ADDR_POSTAL_CODE": "89111",
+    "ADDR_COUNTRY": "US"
+  }],
+  "PHONE_LIST": [{
+    "PHONE_TYPE": "WORK",
+    "PHONE_NUMBER": "800-201-2001"
+  }, {
+    "PHONE_TYPE": "CELL",
+    "PHONE_NUMBER": "702-222-2222"
+  }],
+  "EMAIL_ADDRESS": "bob@jonesfamily.com",
+  "SOCIAL_HANDLE": "@bobjones27",
+  "SOCIAL_NETWORK": "twitter"
+}
 ```
 
-[View JSON on Github](https://github.com/missulmer/SZGESv3/blob/main/json_sample/sample_person.json)
+[View JSON](samples/json/sample_person.json)
 
 #### Sample JSON Describing Companies
 
-FIXME: indendation
-
 ```json
-{"DATA_SOURCE": "COMPANYDATA ",
-"RECORD_ID": 2001,
-"NAME_LIST": [{
-"NAME_TYPE": "PRIMARY",
-"NAME_ORG": "Presto Company" }],
-
-"TAX_ID_NUMBER": "EIN11111",
-"TAX_ID_COUNTRY": "US",
-"ADDRESS_LIST": [{
-"ADDR_TYPE": "PRIMARY",
-"ADDR_LINE1": "Presto Plaza - 2001 Eastern Ave",
-"ADDR_CITY": "Las Vegas", "ADDR_STATE": "NV",
-"ADDR_POSTAL_CODE": "89111",
-"ADDR_COUNTRY": "US" },
-
-{"ADDR_TYPE": "MAIL",
-"ADDR_LINE1": "Po Box 111"
-"ADDR_CITY": "Las Vegas",
-"ADDR_STATE": "NV",
-"ADDR_POSTAL_CODE": "89111",
-"ADDR_COUNTRY": "US"
-}],
-
-"PHONE_LIST": [{
-"PHONE_TYPE": "PRIMARY",
-"PHONE_NUMBER": "800-201-2001" }],
-"WEBSITE_ADDRESS": "Prestofabrics.com",
-"SOCIAL_HANDLE": "@prestofabrics",
-"SOCIAL_NETWORK": "twitter"}
-
-{"RECORD_ID": 2002,
-"NAME_LIST": [{
-"NAME_TYPE": "PRIMARY",
-"NAME_ORG": "Presto Fabrics"
-}],
-
-"ADDRESS_LIST": [{
-"ADDR_TYPE": "PRIMARY",
-"ADDR_LINE1": "2001 Eastern",
-"ADDR_CITY": "Las Vegas",
-"ADDR_STATE": "NV",
-"ADDR_POSTAL_CODE": "89222"
-}],
-
-"PHONE_LIST": [{
-"PHONE_TYPE": "PRIMARY",
-"PHONE_NUMBER": "800-201-2001" }
-]}
-
-{"RECORD_ID": 2003,
-"NAME_LIST": [{
-"NAME_TYPE": "PRIMARY",
-"NAME_ORG": "Fabrics Unlimited, Inc"
-}],
-
-"TAX_ID_NUMBER": "EIN33333",
-"TAX_ID_COUNTRY": "US",
-"OTHER_ID_NUMBER": 33333,
-"OTHER_ID_TYPE": "D&B",
-
-"ADDRESS_LIST": [{
-"ADDR_TYPE": "PRIMARY",
-"ADDR_LINE1": "2003 Southern Highlands, Pkwy",
-"ADDR_CITY": "Las Vegas",
-"ADDR_STATE": "NV",
-"ADDR_POSTAL_CODE": "89333",
-"ADDR_COUNTRY": "US" }],
-
-"PHONE_LIST": [{
-"PHONE_TYPE": "PRIMARY",
-"PHONE_NUMBER": "800-301-3001" }],
-"WEBSITE_ADDRESS": "fabrics-unlimited.com"}
-
-{"RECORD_ID": 2004,
-"NAME_LIST": [{
-"NAME_TYPE": "PRIMARY",
-"NAME_ORG": "Fabrics Unlimited"
-}],
-"ADDRESS_LIST": [{
-"ADDR_TYPE": "PRIMARY", "ADDR_LINE1":
-"2004 Horizon Ridge",
-"ADDR_CITY": "Las Vegas",
-"ADDR_STATE": "NV",
-"ADDR_POSTAL_CODE": "89444"
-}],
-
-"PHONE_LIST": [{
-"PHONE_TYPE": "PRIMARY",
-"PRIMARY_PHONE_NUMBER": "800-301-3001" }],
-
-"WEBSITE_ADDRESS": "fabrics-unlimited.com"}~~~~
+[{
+ "DATA_SOURCE": "COMPANYDATA ",
+ "RECORD_ID": 2001,
+ "NAME_LIST": [{
+  "NAME_TYPE": "PRIMARY",
+  "NAME_ORG": "Presto Company"
+ }],
+ "TAX_ID_NUMBER": "EIN11111",
+ "TAX_ID_COUNTRY": "US",
+ "ADDRESS_LIST": [{
+  "ADDR_TYPE": "PRIMARY",
+  "ADDR_LINE1": "Presto Plaza - 2001 Eastern Ave",
+  "ADDR_CITY": "Las Vegas",
+  "ADDR_STATE": "NV",
+  "ADDR_POSTAL_CODE": "89111",
+  "ADDR_COUNTRY": "US"
+ }, {
+  "ADDR_TYPE": "MAIL",
+  "ADDR_LINE1": "Po Box 111",
+  "ADDR_CITY": "Las Vegas",
+  "ADDR_STATE": "NV",
+  "ADDR_POSTAL_CODE": "89111",
+  "ADDR_COUNTRY": "US"
+ }],
+ "PHONE_LIST": [{
+  "PHONE_TYPE": "PRIMARY",
+  "PHONE_NUMBER": "800-201-2001"
+ }],
+ "WEBSITE_ADDRESS": "Prestofabrics.com",
+ "SOCIAL_HANDLE": "@prestofabrics",
+ "SOCIAL_NETWORK": "twitter"
+}
 ```
 
-[View Json on Github](https://github.com/missulmer/SZGESv3/blob/main/json_sample/sample_company.json)
+```json
+{
+ "RECORD_ID": 2002,
+ "NAME_LIST": [{
+  "NAME_TYPE": "PRIMARY",
+  "NAME_ORG": "Presto Fabrics"
+ }],
+
+ "ADDRESS_LIST": [{
+  "ADDR_TYPE": "PRIMARY",
+  "ADDR_LINE1": "2001 Eastern",
+  "ADDR_CITY": "Las Vegas",
+  "ADDR_STATE": "NV",
+  "ADDR_POSTAL_CODE": "89222"
+ }],
+
+ "PHONE_LIST": [{
+  "PHONE_TYPE": "PRIMARY",
+  "PHONE_NUMBER": "800-201-2001"
+ }]
+}
+```
+
+```json
+{
+ "RECORD_ID": 2003,
+ "NAME_LIST": [{
+  "NAME_TYPE": "PRIMARY",
+  "NAME_ORG": "Fabrics Unlimited, Inc"
+ }],
+
+ "TAX_ID_NUMBER": "EIN33333",
+ "TAX_ID_COUNTRY": "US",
+ "OTHER_ID_NUMBER": 33333,
+ "OTHER_ID_TYPE": "D&B",
+
+ "ADDRESS_LIST": [{
+  "ADDR_TYPE": "PRIMARY",
+  "ADDR_LINE1": "2003 Southern Highlands, Pkwy",
+  "ADDR_CITY": "Las Vegas",
+  "ADDR_STATE": "NV",
+  "ADDR_POSTAL_CODE": "89333",
+  "ADDR_COUNTRY": "US"
+ }],
+
+ "PHONE_LIST": [{
+  "PHONE_TYPE": "PRIMARY",
+  "PHONE_NUMBER": "800-301-3001"
+ }],
+ "WEBSITE_ADDRESS": "fabrics-unlimited.com"
+}
+```
+
+```json
+{
+ "RECORD_ID": 2004,
+ "NAME_LIST": [{
+  "NAME_TYPE": "PRIMARY",
+  "NAME_ORG": "Fabrics Unlimited"
+ }],
+ "ADDRESS_LIST": [{
+  "ADDR_TYPE": "PRIMARY",
+  "ADDR_LINE1": "2004 Horizon Ridge",
+  "ADDR_CITY": "Las Vegas",
+  "ADDR_STATE": "NV",
+  "ADDR_POSTAL_CODE": "89444"
+ }],
+
+ "PHONE_LIST": [{
+  "PHONE_TYPE": "PRIMARY",
+  "PRIMARY_PHONE_NUMBER": "800-301-3001"
+ }],
+
+ "WEBSITE_ADDRESS": "fabrics-unlimited.com"
+}
+```
+
+[View JSON](amples/json/sample_company.json)
+
 
 // [Video]
 // [Go to complete entity Specification]
@@ -339,7 +357,7 @@ Examples:
 
 Important
 
-- Usually, an entire file of records will be assigned the same **DATA_SOURCE** which is why it is marked optional above. Both the G2Loader in the direct install and StreamLoader in the docker install offer the ability to assign a default DATA_SOURCE to a file. This is explained further in the *[Loading Data Handbook.*](https://github.com/missulmer/SZGESv3/blob/main/handbooks/Loading_Data_Handbook)
+- Usually, an entire file of records will be assigned the same **DATA_SOURCE** which is why it is marked optional above. Both the G2Loader in the direct install and StreamLoader in the docker install offer the ability to assign a default DATA_SOURCE to a file. This is explained further in the *[Loading Data Handbook.*](handbooks/loading-data-handbook)
 
 ### Name Attributes for Individuals or Organizations
 
@@ -489,7 +507,7 @@ The following social media attributes are available.
 
 The groups a person belongs to can also help resolve entities. For example, two contact lists that only have a name and who they work for as valuable attributes.
 
-Group associations do not create [disclosed relationships](https://github.com/missulmer/SZGESv3/blob/main/SESV3.md#disclosed-relationship-mapping). Group associations help resolve entities, whereas disclosed relationships help relate them. This does not create a  [disclosed relationships](https://github.com/missulmer/SZGESv3/blob/main/SESV3.md#disclosed-relationship-mapping), instead makes it easier to resolve entities within organizations. For example, Suppose all you have in common between two data sources are name and for whom they work. In that case, a group association can help resolve the Joe Smiths working together at ABC company.
+Group associations do not create [disclosed relationships](#disclosed-relationship-mapping). Group associations help resolve entities, whereas disclosed relationships help relate them. This does not create a  [disclosed relationships](#disclosed-relationship-mapping), instead makes it easier to resolve entities within organizations. For example, Suppose all you have in common between two data sources are name and for whom they work. In that case, a group association can help resolve the Joe Smiths working together at ABC company.
 
 | Attribute name | Data Type | Example | Notes |
 | ----------- | ----------- | ----------- |----------- |
@@ -551,11 +569,11 @@ Examples of disclosed relationships include but are not limited to:
 
 These relationships can be hierarchical or one-directional, like in the case of "Parent Company."
 
-![Heirarchical Relationship](https://github.com/missulmer/SZGESv3/blob/main/md_images/Simple%20Hierarchy.png)
+![Heirarchical Relationship](img/Simple%20Hierarchy.png)
 
 At the same time, others may be bi-directional, like Father, Son, Husband, or Wife. Directional relationships go from one entity to another.
 
-![Detailed bi-directional roles](https://github.com/missulmer/SZGESv3/blob/main/md_images/Spouse%20Bi-directional.png)
+![Detailed bi-directional roles](img/Spouse%20Bi-directional.png)
 
 Technical Terms
 
@@ -569,7 +587,7 @@ Technical Terms
 
 ##### Figure 1: Domain, Pointer, Anchor and Key
 
-![Parent Company Disclosed Relationship](https://github.com/missulmer/SZGESv3/blob/main/md_images/Domain%20Familial%20Detailed%20roles%20Labled.png)
+![Parent Company Disclosed Relationship](img/Domain%20Familial%20Detailed%20roles%20Labled.png)
 
 #### Attributes for Implementing Disclosed Relationships
 
@@ -586,7 +604,7 @@ Technical Terms
 
 ##### Figure 2: Company Hierarchy
 
-![Parent Company Disclosed Relationship](https://github.com/missulmer/SZGESv3/blob/main/md_images/Domain%20Company%20labled.png)
+![Parent Company Disclosed Relationship](img/Domain%20Company%20labled.png)
 
 ```json
 JSON sample
@@ -597,17 +615,17 @@ JSON sample
 
 ##### Figure 3: Bi-directional relationship
 
-![Parent Company Disclosed Relationship](https://github.com/missulmer/SZGESv3/blob/main/md_images/Spouse%20Bi-directional%20labled.png)
+![Parent Company Disclosed Relationship](img/Spouse%20Bi-directional%20labled.png)
 
 ```json
-JSON sample
+FIXME: JSON sample
 ```
 
 #### Familial Detailed Roles
 
 ##### Figure 4: Bi-directional relationship with detailed roles
 
-![Parent Company Disclosed Relationship](https://github.com/missulmer/SZGESv3/blob/main/md_images/Domain%20Familial%20Detailed%20roles%20Labled.png)
+![Parent Company Disclosed Relationship](img/Domain%20Familial%20Detailed%20roles%20Labled.png)
 
 ```json
 {"DATA_SOURCE": "CUSTOMERS",
@@ -673,11 +691,11 @@ Sometimes it is desirable to include additional attributes that can help add fur
 
 ### Loading Data
 
-**Important: Loading data requires converting your source data to the Senzing input format before loading.** If you have not yet completed this step, please review the [Mapping Source Data](https://github.com/missulmer/SZGESv3/blob/main/SESV3.md#mapping-source-data) section of this document.
+**Important: Loading data requires converting your source data to the Senzing input format before loading.** If you have not yet completed this step, please review the [Mapping Source Data](#mapping-source-data) section of this document.
 
 ### Senzing Evaluations:
 
-[Evaluation Data Loading Handbook](https://github.com/missulmer/SZGESv3/blob/main/handbooks/Loading_Data_Handbook)
+[Evaluation Data Loading Handbook](handbooks/loading-data-handbook)
 
 Select the evaluation deployment method that best fits your situation:
 
@@ -688,7 +706,9 @@ Select the evaluation deployment method that best fits your situation:
   - Kafka
 
 ## Production Data Operations - Onboarding New Sources
-### [Data Operations Handbook](https://github.com/missulmer/SZGESv3/blob/main/handbooks/placeholder)
+
+### [Data Operations Handbook](handbooks/data-operations-handbook)
+
 **Production Deployments:**
 
 * AWS SQS
@@ -697,9 +717,10 @@ Select the evaluation deployment method that best fits your situation:
 
 ## Additional Configuration
 
-  Senzing comes pre-configured with all the features, attributes, and settings you will likely need to begin resolving persons and organizations immediately. However, when you need to configure new features for your entities. A typical example of a custom feature(s) are identifiers unique to your data.
+Senzing comes pre-configured with all the features, attributes, and settings you will likely need to begin resolving persons and organizations immediately. However, when you need to configure new features for your entities. A typical example of a custom feature(s) are identifiers unique to your data.
 
-### [Feature Configuration Handbook](https://github.com/missulmer/SZGESv3/blob/main/handbooks/Feature_Configuration_Handbook)
+### [Feature Configuration Handbook](handbooks/feature-configuration-handbook)
+
 This handbook's scope only covers how to configure a custom unique identifier.
 
 If you have unique features or entities that you feel are important for your use cases, [contact Customer Success](https://senzing.zendesk.com/hc/en-us/requests/new) and we will guide you through thier creation.
