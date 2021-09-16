@@ -166,34 +166,34 @@ Below is the basic structure of a JSON record the engine can consume. Note that 
 #### Sample JSON Describing Companies
 
 ```json
-[{
- "DATA_SOURCE": "COMPANYDATA ",
- "RECORD_ID": 2001,
- "NAME_LIST": [{
-  "NAME_TYPE": "PRIMARY",
-  "NAME_ORG": "Presto Company"
- }],
- "TAX_ID_NUMBER": "EIN11111",
- "TAX_ID_COUNTRY": "US",
- "ADDRESS_LIST": [{
-  "ADDR_TYPE": "PRIMARY",
-  "ADDR_LINE1": "Presto Plaza - 2001 Eastern Ave",
-  "ADDR_CITY": "Las Vegas",
-  "ADDR_STATE": "NV",
-  "ADDR_POSTAL_CODE": "89111",
-  "ADDR_COUNTRY": "US"
- }, {
-  "ADDR_TYPE": "MAIL",
-  "ADDR_LINE1": "Po Box 111",
-  "ADDR_CITY": "Las Vegas",
-  "ADDR_STATE": "NV",
-  "ADDR_POSTAL_CODE": "89111",
-  "ADDR_COUNTRY": "US"
- }],
- "PHONE_LIST": [{
-  "PHONE_TYPE": "PRIMARY",
-  "PHONE_NUMBER": "800-201-2001"
- }],
+{
+  "DATA_SOURCE": "COMPANYDATA ",
+  "RECORD_ID": 2001,
+  "NAME_LIST": [{
+    "NAME_TYPE": "PRIMARY",
+    "NAME_ORG": "Presto Company"
+  }],
+  "TAX_ID_NUMBER": "EIN11111",
+  "TAX_ID_COUNTRY": "US",
+  "ADDRESS_LIST": [{
+    "ADDR_TYPE": "PRIMARY",
+    "ADDR_LINE1": "Presto Plaza - 2001 Eastern Ave",
+    "ADDR_CITY": "Las Vegas",
+    "ADDR_STATE": "NV",
+    "ADDR_POSTAL_CODE": "89111",
+    "ADDR_COUNTRY": "US"
+    }, {
+    "ADDR_TYPE": "MAIL",
+    "ADDR_LINE1": "Po Box 111",
+    "ADDR_CITY": "Las Vegas",
+    "ADDR_STATE": "NV",
+    "ADDR_POSTAL_CODE": "89111",
+    "ADDR_COUNTRY": "US"
+  }],
+  "PHONE_LIST": [{
+    "PHONE_TYPE": "PRIMARY",
+    "PHONE_NUMBER": "800-201-2001"
+  }],
  "WEBSITE_ADDRESS": "Prestofabrics.com",
  "SOCIAL_HANDLE": "@prestofabrics",
  "SOCIAL_NETWORK": "twitter"
@@ -202,40 +202,36 @@ Below is the basic structure of a JSON record the engine can consume. Note that 
 
 ```json
 {
- "RECORD_ID": 2002,
- "NAME_LIST": [{
-  "NAME_TYPE": "PRIMARY",
-  "NAME_ORG": "Presto Fabrics"
- }],
-
- "ADDRESS_LIST": [{
-  "ADDR_TYPE": "PRIMARY",
-  "ADDR_LINE1": "2001 Eastern",
-  "ADDR_CITY": "Las Vegas",
-  "ADDR_STATE": "NV",
-  "ADDR_POSTAL_CODE": "89222"
- }],
-
- "PHONE_LIST": [{
-  "PHONE_TYPE": "PRIMARY",
-  "PHONE_NUMBER": "800-201-2001"
- }]
+  "RECORD_ID": 2002,
+  "NAME_LIST": [{
+    "NAME_TYPE": "PRIMARY",
+    "NAME_ORG": "Presto Fabrics"
+  }],
+  "ADDRESS_LIST": [{
+    "ADDR_TYPE": "PRIMARY",
+    "ADDR_LINE1": "2001 Eastern",
+    "ADDR_CITY": "Las Vegas",
+    "ADDR_STATE": "NV",
+    "ADDR_POSTAL_CODE": "89222"
+  }],
+  "PHONE_LIST": [{
+    "PHONE_TYPE": "PRIMARY",
+    "PHONE_NUMBER": "800-201-2001"
+  }]
 }
 ```
 
 ```json
 {
- "RECORD_ID": 2003,
- "NAME_LIST": [{
-  "NAME_TYPE": "PRIMARY",
-  "NAME_ORG": "Fabrics Unlimited, Inc"
- }],
-
+  "RECORD_ID": 2003,
+  "NAME_LIST": [{
+    "NAME_TYPE": "PRIMARY",
+    "NAME_ORG": "Fabrics Unlimited, Inc"
+  }],
  "TAX_ID_NUMBER": "EIN33333",
  "TAX_ID_COUNTRY": "US",
  "OTHER_ID_NUMBER": 33333,
  "OTHER_ID_TYPE": "D&B",
-
  "ADDRESS_LIST": [{
   "ADDR_TYPE": "PRIMARY",
   "ADDR_LINE1": "2003 Southern Highlands, Pkwy",
@@ -718,6 +714,7 @@ Select the evaluation deployment method that best fits your situation:
 
   Senzing comes pre-configured with all the features, attributes, and settings you will likely need to begin resolving persons and organizations immediately. However, when you need to configure new features for your entities. A typical example of a custom feature(s) are identifiers unique to your data.
 
+[Feature Configuration Handbook](handbooks/feature-configuration-handbook).
 This handbook's scope only covers how to configure a custom unique identifier.
 
 If you have unique features or entities that you feel are important for your use cases, [contact Customer Success](https://senzing.zendesk.com/hc/en-us/requests/new) and we will guide you through thier creation.
