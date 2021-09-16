@@ -228,47 +228,44 @@ Below is the basic structure of a JSON record the engine can consume. Note that 
     "NAME_TYPE": "PRIMARY",
     "NAME_ORG": "Fabrics Unlimited, Inc"
   }],
- "TAX_ID_NUMBER": "EIN33333",
- "TAX_ID_COUNTRY": "US",
- "OTHER_ID_NUMBER": 33333,
- "OTHER_ID_TYPE": "D&B",
- "ADDRESS_LIST": [{
-  "ADDR_TYPE": "PRIMARY",
-  "ADDR_LINE1": "2003 Southern Highlands, Pkwy",
-  "ADDR_CITY": "Las Vegas",
-  "ADDR_STATE": "NV",
-  "ADDR_POSTAL_CODE": "89333",
-  "ADDR_COUNTRY": "US"
- }],
-
- "PHONE_LIST": [{
-  "PHONE_TYPE": "PRIMARY",
-  "PHONE_NUMBER": "800-301-3001"
- }],
- "WEBSITE_ADDRESS": "fabrics-unlimited.com"
+  "TAX_ID_NUMBER": "EIN33333",
+  "TAX_ID_COUNTRY": "US",
+  "OTHER_ID_NUMBER": 33333,
+  "OTHER_ID_TYPE": "D&B",
+  "ADDRESS_LIST": [{
+    "ADDR_TYPE": "PRIMARY",
+    "ADDR_LINE1": "2003 Southern Highlands, Pkwy",
+    "ADDR_CITY": "Las Vegas",
+    "ADDR_STATE": "NV",
+    "ADDR_POSTAL_CODE": "89333",
+    "ADDR_COUNTRY": "US"
+  }],
+  "PHONE_LIST": [{
+    "PHONE_TYPE": "PRIMARY",
+    "PHONE_NUMBER": "800-301-3001"
+  }],
+  "WEBSITE_ADDRESS": "fabrics-unlimited.com"
 }
 ```
 
 ```json
 {
- "RECORD_ID": 2004,
- "NAME_LIST": [{
-  "NAME_TYPE": "PRIMARY",
-  "NAME_ORG": "Fabrics Unlimited"
- }],
- "ADDRESS_LIST": [{
-  "ADDR_TYPE": "PRIMARY",
-  "ADDR_LINE1": "2004 Horizon Ridge",
-  "ADDR_CITY": "Las Vegas",
-  "ADDR_STATE": "NV",
-  "ADDR_POSTAL_CODE": "89444"
- }],
-
- "PHONE_LIST": [{
-  "PHONE_TYPE": "PRIMARY",
-  "PRIMARY_PHONE_NUMBER": "800-301-3001"
- }],
-
+  "RECORD_ID": 2004,
+  "NAME_LIST": [{
+    "NAME_TYPE": "PRIMARY",
+    "NAME_ORG": "Fabrics Unlimited"
+  }],
+  "ADDRESS_LIST": [{
+    "ADDR_TYPE": "PRIMARY",
+    "ADDR_LINE1": "2004 Horizon Ridge",
+    "ADDR_CITY": "Las Vegas",
+    "ADDR_STATE": "NV",
+    "ADDR_POSTAL_CODE": "89444"
+  }],
+  "PHONE_LIST": [{
+    "PHONE_TYPE": "PRIMARY",
+    "PRIMARY_PHONE_NUMBER": "800-301-3001"
+  }],
  "WEBSITE_ADDRESS": "fabrics-unlimited.com"
 }
 ```
@@ -530,13 +527,15 @@ Some features have special labels that add weight to them. For instance, you mig
 
 ### JSON Example
 
-```json
-"ADDRESS_LIST": [{
+- `ADDR_TYPE` - Use the “type”attribute in a json list
 
-//Use the “type”attribute in a json list
-"ADDR_TYPE": "BUSINESS",
-"ADDR_LINE1": "111 First St",
-"ADDR_CITY": "Anytown",
+```json
+:
+"ADDRESS_LIST": [{
+  "ADDR_TYPE": "BUSINESS",
+  "ADDR_LINE1": "111 First St",
+  "ADDR_CITY": "Anytown",
+  :
 ```
 
 CSV Example
@@ -622,6 +621,8 @@ FIXME: JSON sample
 
 ![Parent Company Disclosed Relationship](img/Domain%20Familial%20Detailed%20roles%20Labled.png)
 
+FIXME: Invalid JSON
+
 ```json
 {"DATA_SOURCE": "CUSTOMERS",
 "ENTITY_TYPE": "GENERIC",
@@ -665,7 +666,7 @@ FIXME: JSON sample
 "REL_POINTER_KEY": "1001",
 "REL_POINTER_ROLE": "Son"}]
 }
-json
+```
 
 Have questions? [Click here](https://senzing.zendesk.com/hc/en-us/requests/new) for help implmementing disclosed relationships.
 
@@ -683,12 +684,11 @@ Sometimes it is desirable to include additional attributes that can help add fur
 
   On smaller Senzing systems, you may want to include and store additional non-Senzing attributes. On larger Senzing systems, it is best practice to load only the configured attributes used for entity resolution and use a data warehouse or other external system to access additional non-Senzing attributes.
 
-
 ### Loading Data
 
 **Important: Loading data requires converting your source data to the Senzing input format before loading.** If you have not yet completed this step, please review the [Mapping Source Data](#mapping-source-data) section of this document.
 
-### Senzing Evaluations:
+### Senzing Evaluations
 
 [Evaluation Data Loading Handbook](handbooks/loading-data-handbook)
 
@@ -706,9 +706,9 @@ Select the evaluation deployment method that best fits your situation:
 
 **Production Deployments:**
 
-* AWS SQS
-* RabbitMQ
-* Kafka
+- AWS SQS
+- RabbitMQ
+- Kafka
 
 ## Additional Configuration
 
