@@ -108,11 +108,11 @@ Below is the basic structure of a JSON record the engine can consume. Note that 
 
 *Notes:*
 
-- A `DATA_SOURCE` code is required, must be UPPER CASE and not greater than 25 characters.
-- A `RECORD_ID` is always desired
-- In `NAME_LIST`, multiple name segments are placed in a list
-- In `ADDRESS_LIST`, multiple Address segments placed in a list, where there are multiple addresses you will choose a "TYPE" like HOME and MAIL
-- In `PHONE_LIST`, multiple phone numbers are placed in a list with a tagged TYPE. E.g. 'WORK' and 'CELL'
+- `DATA_SOURCE` code is required, must be UPPER CASE and not greater than 25 characters.
+- `RECORD_ID` is always desired.
+- `NAME_LIST` is multiple name segments are placed in a list
+- `ADDRESS_LIST` is multiple Address segments placed in a list, where there are multiple addresses you will choose a "TYPE" like HOME and MAIL
+- `PHONE_LIST` is multiple phone numbers are placed in a list with a tagged TYPE. E.g. 'WORK' and 'CELL'
 
 ```json
 {
@@ -270,7 +270,7 @@ Below is the basic structure of a JSON record the engine can consume. Note that 
 }
 ```
 
-[View JSON](amples/json/sample_company.json)
+[View JSON](samples/json/sample_company.json)
 
 FIXME: Video
 FIXME: Go to complete entity Specification
@@ -349,7 +349,7 @@ Examples:
 
 Important
 
-- Usually, an entire file of records will be assigned the same **DATA_SOURCE** which is why it is marked optional above. Both the G2Loader in the direct install and StreamLoader in the docker install offer the ability to assign a default DATA_SOURCE to a file. This is explained further in the *[Loading Data Handbook.*](handbooks/loading-data-handbook)
+- Usually, an entire file of records will be assigned the same **DATA_SOURCE** which is why it is marked optional above. Both the G2Loader in the direct install and StreamLoader in the docker install offer the ability to assign a default DATA_SOURCE to a file. This is explained further in the *[Loading Data Handbook.*](handbooks/loading-data-handbook.md)
 
 ### Name Attributes for Individuals or Organizations
 
@@ -690,7 +690,7 @@ Sometimes it is desirable to include additional attributes that can help add fur
 
 ### Senzing Evaluations
 
-[Evaluation Data Loading Handbook](handbooks/loading-data-handbook)
+[Evaluation Data Loading Handbook](handbooks/loading-data-handbook.md)
 
 Select the evaluation deployment method that best fits your situation:
 
@@ -702,7 +702,7 @@ Select the evaluation deployment method that best fits your situation:
 
 ## Production Data Operations - Onboarding New Sources
 
-### [Data Operations Handbook](handbooks/data-operations-handbook)
+### [Data Operations Handbook](handbooks/data-operations-handbook.md)
 
 **Production Deployments:**
 
@@ -714,7 +714,7 @@ Select the evaluation deployment method that best fits your situation:
 
   Senzing comes pre-configured with all the features, attributes, and settings you will likely need to begin resolving persons and organizations immediately. However, when you need to configure new features for your entities. A typical example of a custom feature(s) are identifiers unique to your data.
 
-[Feature Configuration Handbook](handbooks/feature-configuration-handbook).
+[Feature Configuration Handbook](handbooks/feature-configuration-handbook.md).
 This handbook's scope only covers how to configure a custom unique identifier.
 
 If you have unique features or entities that you feel are important for your use cases, [contact Customer Success](https://senzing.zendesk.com/hc/en-us/requests/new) and we will guide you through thier creation.
